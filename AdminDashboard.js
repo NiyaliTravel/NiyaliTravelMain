@@ -1,371 +1,311 @@
 import React from "react";
 
-const dashboardStats = [
+const stats = [
   {
-    icon: (
-      <svg
-        className="w-6 h-6 text-blue-400"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        viewBox="0 0 24 24"
-      >
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-        <path d="M9 11V7a3 3 0 016 0v4" />
-      </svg>
-    ),
-    title: "2,847",
-    subtitle: "Total Bookings",
+    key: "Total Bookings",
+    value: "2,847",
     change: "+12%",
-    link: "#",
-    changeColor: "text-green-400",
-  },
-  {
     icon: (
       <svg
-        className="w-6 h-6 text-green-400"
+        className="w-6 h-6 text-white"
         fill="none"
         stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={2}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 6v6l4 2" />
+        <path d="M3 7h18M3 12h18M3 17h18"></path>
       </svg>
-    ),
-    title: "$458,920",
-    subtitle: "Revenue",
+    )
+  },
+  {
+    key: "Revenue",
+    value: "$458,920",
     change: "+18%",
-    link: "#",
-    changeColor: "text-green-400",
-  },
-  {
     icon: (
       <svg
-        className="w-6 h-6 text-cyan-400"
+        className="w-6 h-6 text-white"
         fill="none"
         stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={2}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M17 21v-2a4 4 0 00-3-3.87" />
-        <path d="M9 21v-2a4 4 0 013-3.87" />
-        <circle cx="12" cy="7" r="4" />
+        <path d="M12 8c-1.104 0-2 .896-2 2 0 1.104.896 2 2 2"></path>
+        <path d="M12 12v4"></path>
+        <circle cx="12" cy="12" r="10"></circle>
       </svg>
-    ),
-    title: "8,432",
-    subtitle: "Active Users",
+    )
+  },
+  {
+    key: "Active Users",
+    value: "8,432",
     change: "+5%",
-    link: "#",
-    changeColor: "text-green-400",
-  },
-  {
     icon: (
       <svg
-        className="w-6 h-6 text-purple-400"
+        className="w-6 h-6 text-white"
         fill="none"
         stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={2}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M10 20v-6h4v6m1-10a7 7 0 11-8 0" />
+        <circle cx="12" cy="7" r="4"></circle>
+        <path d="M5.5 20a6.5 6.5 0 0113 0"></path>
       </svg>
-    ),
-    title: "127",
-    subtitle: "Experiences",
-    change: "+3%",
-    link: "#",
-    changeColor: "text-green-400",
+    )
   },
+  {
+    key: "Experiences",
+    value: "127",
+    change: "+3%",
+    icon: (
+      <svg
+        className="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M12 3v18"></path>
+        <path d="M3 12h18"></path>
+      </svg>
+    )
+  }
 ];
 
 const modules = [
   {
-    bgColor: "bg-blue-500",
     title: "Analytics Dashboard",
     description: "View comprehensive analytics and reports",
+    color: "bg-blue-500",
     icon: (
       <svg
-        className="w-8 h-8 text-blue-200"
+        className="w-8 h-8 text-white opacity-80"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={1.5}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M3 3v18h18" />
-        <path d="M18 17v-6M13 17v-10M8 17v-2" />
+        <path d="M3 3v18h18"></path>
+        <path d="M9 14l2-2 4 4"></path>
       </svg>
-    ),
-    link: "/admin/analytics",
+    )
   },
   {
-    bgColor: "bg-green-500",
     title: "B2B Booking System",
     description: "Manage partner bookings and group reservations",
+    color: "bg-green-500",
     icon: (
       <svg
-        className="w-8 h-8 text-green-200"
+        className="w-8 h-8 text-white opacity-80"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={1.5}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M17 21v-2a4 4 0 00-3-3.87M9 21v-2a4 4 0 013-3.87" />
-        <circle cx="12" cy="7" r="4" />
+        <path d="M12 12c-1.38 0-2.5-1.12-2.5-2.5S10.62 7 12 7s2.5 1.12 2.5 2.5S13.38 12 12 12z"></path>
+        <path d="M7 17h10"></path>
       </svg>
-    ),
-    link: "/admin/b2b-booking",
+    )
   },
   {
-    bgColor: "bg-purple-600",
     title: "CRM & Email Campaigns",
     description: "Customer relationship management and marketing",
+    color: "bg-purple-600",
     icon: (
       <svg
-        className="w-8 h-8 text-purple-200"
+        className="w-8 h-8 text-white opacity-80"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={1.5}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M16 12v-1a4 4 0 00-8 0v1" />
-        <rect x="8" y="12" width="8" height="8" rx="3" />
-        <path d="M12 20v2M16 22h-8" />
+        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8"></path>
+        <rect width={18} height={12} x={3} y={6} rx={2} ry={2}></rect>
       </svg>
-    ),
-    link: "/admin/crm-email",
+    )
   },
   {
-    bgColor: "bg-indigo-600",
     title: "Content Management",
     description: "Manage website content, media, and experiences",
+    color: "bg-indigo-600",
     icon: (
       <svg
-        className="w-8 h-8 text-indigo-300"
+        className="w-8 h-8 text-white opacity-80"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={1.5}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
-        <path d="M3 10h18" />
+        <path d="M12 20h9"></path>
+        <path d="M12 4h9"></path>
+        <path d="M3 9h7"></path>
+        <path d="M3 15h7"></path>
       </svg>
-    ),
-    link: "/admin/content",
+    )
   },
   {
-    bgColor: "bg-cyan-600",
     title: "Booking Management",
     description: "View and manage customer bookings",
+    color: "bg-cyan-600",
     icon: (
       <svg
-        className="w-8 h-8 text-cyan-300"
+        className="w-8 h-8 text-white opacity-80"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={1.5}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
-        <line x1="16" y1="2" x2="16" y2="6" />
-        <line x1="8" y1="2" x2="8" y2="6" />
+        <rect width={16} height={12} x={4} y={6} rx={2} ry={2}></rect>
+        <path d="M4 10h16"></path>
       </svg>
-    ),
-    link: "/admin/booking",
+    )
   },
   {
-    bgColor: "bg-orange-500",
     title: "User Management",
     description: "Manage system users and permissions",
+    color: "bg-orange-600",
     icon: (
       <svg
-        className="w-8 h-8 text-orange-200"
+        className="w-8 h-8 text-white opacity-80"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={1.5}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx="12" cy="7" r="4" />
-        <path d="M5.5 21v-2a7 7 0 0113 0v2" />
+        <circle cx="12" cy="7" r="4"></circle>
+        <path d="M5.5 20a6.5 6.5 0 0113 0"></path>
       </svg>
-    ),
-    link: "/admin/user-management",
+    )
   },
   {
-    bgColor: "bg-gray-700",
     title: "System Integration",
     description: "Manage third-party integrations and APIs",
+    color: "bg-gray-700",
     icon: (
       <svg
-        className="w-8 h-8 text-gray-400"
+        className="w-8 h-8 text-white opacity-80"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={1.5}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx="12" cy="12" r="3" />
-        <path d="M19.4 15a6.97 6.97 0 000-6" />
-        <path d="M4.6 9a6.97 6.97 0 000 6" />
-        <path d="M12 3v2" />
-        <path d="M12 19v2" />
-        <path d="M16.95 7.05l-1.41 1.41" />
-        <path d="M7.05 16.95l-1.41 1.41" />
+        <path d="M12 3v18"></path>
+        <path d="M3 12h18"></path>
       </svg>
-    ),
-    link: "/admin/system-integration",
+    )
   },
   {
-    bgColor: "bg-red-600",
     title: "Security & Compliance",
     description: "Security settings and compliance monitoring",
+    color: "bg-red-600",
     icon: (
       <svg
-        className="w-8 h-8 text-red-300"
+        className="w-8 h-8 text-white opacity-80"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={1.5}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M12 22s8-4 8-10V7l-8-5-8 5v5c0 6 8 10 8 10z" />
-        <path d="M9 12l2 2 4-4" />
+        <path d="M12 22s8-4 8-10V7l-8-4-8 4v5c0 6 8 10 8 10z"></path>
+        <path d="M9 12l2 2 4-4"></path>
       </svg>
-    ),
-    link: "/admin/security-compliance",
+    )
   },
   {
-    bgColor: "bg-pink-600",
     title: "Mobile PWA",
     description: "Progressive Web App management",
+    color: "bg-pink-600",
     icon: (
       <svg
-        className="w-8 h-8 text-pink-300"
+        className="w-8 h-8 text-white opacity-80"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth={1.5}
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <rect x="7" y="7" width="10" height="10" rx="2" ry="2" />
-        <path d="M12 2v3M12 19v3M5 12H2M22 12h-3" />
+        <rect width={14} height={18} x={5} y={3} rx={2} ry={2}></rect>
+        <path d="M12 7v4"></path>
+        <path d="M9 11h6"></path>
       </svg>
-    ),
-    link: "/admin/mobile-pwa",
-  },
-];
-
-const accessLevels = [
-  {
-    label: "Analytics",
-    granted: true,
-  },
-  {
-    label: "User Management",
-    granted: true,
-  },
-  {
-    label: "All Bookings",
-    granted: true,
-  },
-  {
-    label: "Manage Experiences",
-    granted: true,
-  },
+    )
+  }
 ];
 
 const AdminDashboard = () => {
   return (
-    <div className="p-6 bg-gray-900 min-h-screen text-white font-sans">
-      {/* Access Level */}
-      <section className="mb-6 bg-gray-800 rounded-lg p-4">
+    <div className="px-6 py-8 bg-gray-900 min-h-screen text-white font-sans">
+      <section className="mb-10">
         <h2 className="text-lg font-semibold mb-4">Your Access Level</h2>
-        <div className="flex flex-wrap gap-8">
-          {accessLevels.map((level) => (
+        <div className="flex space-x-8 mb-8">
+          <div className="flex items-center space-x-2 text-green-400 font-medium">
+            <span className="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+            <span>Analytics</span>
+          </div>
+          <div className="flex items-center space-x-2 text-green-400 font-medium">
+            <span className="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+            <span>User Management</span>
+          </div>
+          <div className="flex items-center space-x-2 text-green-400 font-medium">
+            <span className="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+            <span>All Bookings</span>
+          </div>
+          <div className="flex items-center space-x-2 text-green-400 font-medium">
+            <span className="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+            <span>Manage Experiences</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {stats.map(({ key, value, change, icon }) => (
             <div
-              key={level.label}
-              className="flex items-center space-x-2 select-none"
+              key={key}
+              className="bg-gray-800 rounded-lg p-6 flex flex-col items-start space-y-2 shadow-lg"
             >
-              <span
-                className={`inline-block w-3 h-3 rounded-full ${
-                  level.granted ? "bg-green-400" : "bg-gray-600"
-                }`}
-                aria-hidden="true"
-              />
-              <span>{level.label}</span>
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-indigo-600 rounded-md">{icon}</div>
+                <h3 className="text-lg font-bold">{value}</h3>
+              </div>
+              <p className="text-sm text-gray-400">{key}</p>
+              <span className="text-xs text-green-400 font-semibold">{change}</span>
+              <a className="text-indigo-400 text-xs underline cursor-pointer" href="#">
+                Click to view details
+              </a>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="mb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {dashboardStats.map(({ icon, title, subtitle, change, link, changeColor }, i) => (
-          <div
-            key={i}
-            className="flex flex-col bg-gray-800 rounded-lg p-6 cursor-pointer hover:bg-gray-700 transition shadow-md"
-          >
-            <div className="mb-4">{icon}</div>
-            <div className="text-3xl font-extrabold">{title}</div>
-            <div className="text-sm text-gray-300 mb-2">{subtitle}</div>
-            <div className={`self-start text-xs font-semibold rounded-full px-2 py-0.5 ${changeColor} bg-green-900`}>
-              {change}
-            </div>
-            <a
-              href={link}
-              className="text-xs mt-3 text-blue-400 underline"
-              onClick={(e) => e.preventDefault()}
-            >
-              Click to view details
-            </a>
-          </div>
-        ))}
-      </section>
-
-      {/* Modules */}
       <section>
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-lg font-semibold">Admin Modules</h3>
-          <span className="text-sm text-gray-400">
-            Click any module to access its features
-          </span>
+          <h2 className="text-xl font-semibold">Admin Modules</h2>
+          <p className="text-sm text-gray-400">Click any module to access its features</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {modules.map(({ bgColor, title, description, icon, link }, i) => (
-            <a
-              key={i}
-              href={link}
-              className={`${bgColor} rounded-lg p-8 flex flex-col gap-3 cursor-pointer shadow-lg hover:shadow-xl transition select-none`}
-              onClick={(e) => e.preventDefault()}
-              title={title}
+          {modules.map(({ title, description, color, icon }) => (
+            <button
+              key={title}
+              type="button"
+              className={`${color} rounded-lg p-6 flex flex-col space-y-3 shadow-lg focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-500`}
+              aria-label={`Access ${title}`}
+              onClick={() => alert(`Navigating to ${title}`)}
             >
               <div>{icon}</div>
-              <h4 className="text-white font-semibold text-xl">{title}</h4>
-              <p className="text-white text-base opacity-90">{description}</p>
-            </a>
+              <h3 className="text-lg font-bold text-white">{title}</h3>
+              <p className="text-sm text-white opacity-90">{description}</p>
+            </button>
           ))}
         </div>
       </section>
