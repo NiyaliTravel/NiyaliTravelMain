@@ -4,7 +4,7 @@ const dashboardStats = [
   {
     icon: (
       <svg
-        className="w-6 h-6 text-white"
+        className="w-6 h-6 text-blue-400"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
@@ -20,11 +20,12 @@ const dashboardStats = [
     subtitle: "Total Bookings",
     change: "+12%",
     link: "#",
+    changeColor: "text-green-400",
   },
   {
     icon: (
       <svg
-        className="w-6 h-6 text-white"
+        className="w-6 h-6 text-green-400"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
@@ -40,11 +41,12 @@ const dashboardStats = [
     subtitle: "Revenue",
     change: "+18%",
     link: "#",
+    changeColor: "text-green-400",
   },
   {
     icon: (
       <svg
-        className="w-6 h-6 text-white"
+        className="w-6 h-6 text-cyan-400"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
@@ -61,11 +63,12 @@ const dashboardStats = [
     subtitle: "Active Users",
     change: "+5%",
     link: "#",
+    changeColor: "text-green-400",
   },
   {
     icon: (
       <svg
-        className="w-6 h-6 text-white"
+        className="w-6 h-6 text-purple-400"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
@@ -80,17 +83,18 @@ const dashboardStats = [
     subtitle: "Experiences",
     change: "+3%",
     link: "#",
+    changeColor: "text-green-400",
   },
 ];
 
 const modules = [
   {
-    bgColor: "bg-blue-600",
+    bgColor: "bg-blue-500",
     title: "Analytics Dashboard",
     description: "View comprehensive analytics and reports",
     icon: (
       <svg
-        className="w-8 h-8 text-white"
+        className="w-8 h-8 text-blue-200"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -110,7 +114,7 @@ const modules = [
     description: "Manage partner bookings and group reservations",
     icon: (
       <svg
-        className="w-8 h-8 text-white"
+        className="w-8 h-8 text-green-200"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -130,7 +134,7 @@ const modules = [
     description: "Customer relationship management and marketing",
     icon: (
       <svg
-        className="w-8 h-8 text-white"
+        className="w-8 h-8 text-purple-200"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -151,7 +155,7 @@ const modules = [
     description: "Manage website content, media, and experiences",
     icon: (
       <svg
-        className="w-8 h-8 text-white"
+        className="w-8 h-8 text-indigo-300"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -171,7 +175,7 @@ const modules = [
     description: "View and manage customer bookings",
     icon: (
       <svg
-        className="w-8 h-8 text-white"
+        className="w-8 h-8 text-cyan-300"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -192,7 +196,7 @@ const modules = [
     description: "Manage system users and permissions",
     icon: (
       <svg
-        className="w-8 h-8 text-white"
+        className="w-8 h-8 text-orange-200"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -212,7 +216,7 @@ const modules = [
     description: "Manage third-party integrations and APIs",
     icon: (
       <svg
-        className="w-8 h-8 text-white"
+        className="w-8 h-8 text-gray-400"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -237,7 +241,7 @@ const modules = [
     description: "Security settings and compliance monitoring",
     icon: (
       <svg
-        className="w-8 h-8 text-white"
+        className="w-8 h-8 text-red-300"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -257,7 +261,7 @@ const modules = [
     description: "Progressive Web App management",
     icon: (
       <svg
-        className="w-8 h-8 text-white"
+        className="w-8 h-8 text-pink-300"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -296,11 +300,14 @@ const AdminDashboard = () => {
   return (
     <div className="p-6 bg-gray-900 min-h-screen text-white font-sans">
       {/* Access Level */}
-      <section className="mb-6">
-        <h2 className="text-lg font-semibold mb-2">Your Access Level</h2>
-        <div className="flex flex-wrap gap-6">
+      <section className="mb-6 bg-gray-800 rounded-lg p-4">
+        <h2 className="text-lg font-semibold mb-4">Your Access Level</h2>
+        <div className="flex flex-wrap gap-8">
           {accessLevels.map((level) => (
-            <div key={level.label} className="flex items-center space-x-2">
+            <div
+              key={level.label}
+              className="flex items-center space-x-2 select-none"
+            >
               <span
                 className={`inline-block w-3 h-3 rounded-full ${
                   level.granted ? "bg-green-400" : "bg-gray-600"
@@ -314,21 +321,21 @@ const AdminDashboard = () => {
       </section>
 
       {/* Stats */}
-      <section className="mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        {dashboardStats.map(({ icon, title, subtitle, change, link }, i) => (
+      <section className="mb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        {dashboardStats.map(({ icon, title, subtitle, change, link, changeColor }, i) => (
           <div
             key={i}
-            className="flex flex-col bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-700 transition"
+            className="flex flex-col bg-gray-800 rounded-lg p-6 cursor-pointer hover:bg-gray-700 transition shadow-md"
           >
-            <div className="mb-2">{icon}</div>
-            <div className="text-2xl font-bold">{title}</div>
-            <div className="text-sm text-gray-400">{subtitle}</div>
-            <div className="mt-auto text-xs text-green-400 font-semibold">
+            <div className="mb-4">{icon}</div>
+            <div className="text-3xl font-extrabold">{title}</div>
+            <div className="text-sm text-gray-300 mb-2">{subtitle}</div>
+            <div className={`self-start text-xs font-semibold rounded-full px-2 py-0.5 ${changeColor} bg-green-900`}>
               {change}
             </div>
             <a
               href={link}
-              className="text-xs mt-1 text-blue-400 underline"
+              className="text-xs mt-3 text-blue-400 underline"
               onClick={(e) => e.preventDefault()}
             >
               Click to view details
@@ -339,25 +346,25 @@ const AdminDashboard = () => {
 
       {/* Modules */}
       <section>
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex justify-between items-center mb-6">
           <h3 className="text-lg font-semibold">Admin Modules</h3>
           <span className="text-sm text-gray-400">
             Click any module to access its features
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {modules.map(({ bgColor, title, description, icon, link }, i) => (
             <a
               key={i}
               href={link}
-              className={`${bgColor} rounded-lg p-5 flex flex-col gap-2 cursor-pointer shadow-lg hover:shadow-xl transition`}
+              className={`${bgColor} rounded-lg p-8 flex flex-col gap-3 cursor-pointer shadow-lg hover:shadow-xl transition select-none`}
               onClick={(e) => e.preventDefault()}
               title={title}
             >
               <div>{icon}</div>
-              <h4 className="text-white font-semibold text-lg">{title}</h4>
-              <p className="text-white text-sm opacity-80">{description}</p>
+              <h4 className="text-white font-semibold text-xl">{title}</h4>
+              <p className="text-white text-base opacity-90">{description}</p>
             </a>
           ))}
         </div>
