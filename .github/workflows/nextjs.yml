@@ -1,0 +1,55 @@
+# .github/workflows/publish.yml
+name: Publish to Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build Next.js project
+        run: npm run build
+
+      - name: Publish to Production Server
+        uses: easingthemes/ssh-deploy@v2.1.5
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote-user: ${{ secrets.PROD_SERVER_USER }}
+          server-ip: ${{ secrets.PROD_SERVER_IP }}
+          remote-path: /var/www/niyali-travel
+          local-path: .next
+
+      - name: Invalidate CDN Cache
+        run: |
+          curl -X POST https://api.cdnprovider.com/invalidate \
+          -H "Authorization: Bearer ${{ secrets.CDN_API_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{"paths":["/*"]}'
+
+      - name: Notify Slack of Deployment
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          slack-message: "🚀 NiyaliTravel site published from GitHub Actions to production."
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
